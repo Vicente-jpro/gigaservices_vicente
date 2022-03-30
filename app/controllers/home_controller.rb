@@ -1,10 +1,13 @@
 class HomeController < ApplicationController
+  
   before_action :set_person_service
+    
   def index
-    @person = @person_service.general
+    @person_service = @person_service_data.general
   end
-
+  
   def set_person_service 
-    @person_service = PersonService.new
+    @person_service_data = PersonService.new
   end
+  
 end
