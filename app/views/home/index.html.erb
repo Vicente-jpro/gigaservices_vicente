@@ -1,0 +1,28 @@
+<h1 >General Person</h1>
+<div class= "container"> 
+    <div class="row">
+    
+        <div class="col text-center bg-light ">
+            <div class="d-block">
+                <%= image_tag(@person['results'][0]['picture']['large']) %>
+            </div>
+            <div class="d-block my-2">
+                <strong>
+                    <%= @person['results'][0]['name']['title'] %>
+                    <%= @person['results'][0]['name']['first'] %>
+                    <%= @person['results'][0]['name']['last'] %>
+                </strong>
+            </div>
+            <div class="d-block">
+              <%= @person['results'][0]['gender'] %>
+            </div>
+            <div class="d-block">
+              <%= @person['results'][0]['email'] %>
+            </div>
+            <div class="btn btn-info my-2">
+                Save this person
+            </div>
+        </div>
+
+    </div>
+</div>
