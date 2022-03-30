@@ -6,7 +6,7 @@
             <div class="d-block">
                 <%= image_tag(@person['results'][0]['picture']['large']) %>
             </div>
-            <div class="d-block">
+            <div class="d-block my-2">
                 <strong>
                     <%= @person['results'][0]['name']['title'] %>
                     <%= @person['results'][0]['name']['first'] %>
@@ -19,8 +19,10 @@
             <div class="d-block">
               <%= @person['results'][0]['email'] %>
             </div>
-            
-              
+            <div class="btn btn-info my-2">
+                Save this person
+            </div>
         </div>
+
     </div>
 </div>
