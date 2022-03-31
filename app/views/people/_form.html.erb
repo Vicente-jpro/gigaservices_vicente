@@ -19,48 +19,44 @@
             <div class="d-block">
               <%=  email(@person_service) %>
             </div>
-            <div class="btn btn-info my-2">
-                Save this person
-            </div>
-        </div>
+  
+              <%= form_with(model: person) do |form| %>
+                <% if person.errors.any? %>
+                  <div style="color: red">
+                    <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
 
+                    <ul>
+                      <% person.errors.each do |error| %>
+                        <li><%= error.full_message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+
+                <div>
+                  <%= form.hidden_field :title, value: name_title(@person_service)  %>
+                </div>
+
+                <div>
+                  <%= form.hidden_field :first, value: name_first(@person_service) %>
+                </div>
+
+                <div>
+                  <%= form.hidden_field :last, value: name_last(@person_service) %>
+                </div>
+
+                <div>
+                  <%= form.hidden_field :gender, value: gender(@person_service) %>
+                </div>
+
+                <div>
+                  <%= form.hidden_field :email, value:  email(@person_service) %>
+                </div>
+
+                <div>
+                  <%= form.submit "Save this person", class:"btn btn-info my-2" %>
+                </div>
+              <% end %>
+      </div>
     </div>
 </div>
-
-<%= form_with(model: person) do |form| %>
-  <% if person.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
-
-      <ul>
-        <% person.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.text_field :first %>
-  </div>
-
-  <div>
-    <%= form.text_field :last %>
-  </div>
-
-  <div>
-    <%= form.text_field :gender %>
-  </div>
-
-  <div>
-    <%= form.text_field :email %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
