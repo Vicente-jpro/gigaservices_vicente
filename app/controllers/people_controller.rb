@@ -27,7 +27,18 @@ class PeopleController < ApplicationController
   # POST /people or /people.json
   def create
     @person = Person.new(person_params)
+    
+    require 'open-uri'
+    
+    download = open(person_params[:avatar_remote_url])
+    IO.copy_stream(download, '~/image.jpg')
 
+    #@person.photo.attach(
+     # io: File.open(), 
+     # filename: "profile.jpg", 
+      #content_type: "image/jpeg")
+      
+      debugger
     respond_to do |format|
       if @person.save
         format.html { redirect_to person_url(@person), notice: "Person was successfully created." }
@@ -70,6 +81,6 @@ class PeopleController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.require(:person).permit(:title, :first, :last, :gender, :email, :photo)
+      params.require(:person).permit(:title, :first, :last, :gender, :email, :avatar_remote_url)
     end
 end

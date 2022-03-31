@@ -8,9 +8,9 @@
             </div>
             <div class="d-block my-2">
                 <strong>
-                    <%= name_title(@person_service) %>
-                    <%= name_first(@person_service) %>
-                    <%= name_last(@person_service) %>
+                  <%= name_title(@person_service) %>
+                  <%= name_first(@person_service) %>
+                  <%= name_last(@person_service) %>
                 </strong>
             </div>
             <div class="d-block">
@@ -54,7 +54,7 @@
                 </div>
 
                 <div>
-                  <%= form.file_field :photo %>
+                  <%= form.text_field :avatar_remote_url, value: image_person_url(@person_service) %>
                 </div>
 
                 <div>
