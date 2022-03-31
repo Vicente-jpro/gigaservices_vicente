@@ -1,10 +1,12 @@
 class HomeController < ApplicationController
   #Person service 
   include PersonServiceConcern
-  before_action :set_person_service
+  before_action :get_person_data_from_api_service
     
   def index
-    @person_service = @person_service_data.general
+    @person_service = get_person_data_from_api_service.general
   end
+
+  
   
 end

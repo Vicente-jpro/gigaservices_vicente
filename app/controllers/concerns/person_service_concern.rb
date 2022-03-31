@@ -2,8 +2,8 @@ module PersonServiceConcern
     extend ActiveSupport::Concern
    
     private
-        def set_person_service 
-        @person_service_data = PersonService.new
+        def get_person_data_from_api_service 
+          PersonService.new
         end
   
 end

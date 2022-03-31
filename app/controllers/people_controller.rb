@@ -1,4 +1,8 @@
 class PeopleController < ApplicationController
+
+  include PersonServiceConcern
+  before_action :get_person_data_from_api_service
+
   before_action :set_person, only: %i[ show edit update destroy ]
 
   # GET /people or /people.json
@@ -13,6 +17,7 @@ class PeopleController < ApplicationController
   # GET /people/new
   def new
     @person = Person.new
+    @person_service = get_person_data_from_api_service.general
   end
 
   # GET /people/1/edit
