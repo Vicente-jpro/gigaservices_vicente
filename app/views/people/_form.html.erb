@@ -4,7 +4,7 @@
     
         <div class="col text-center bg-light ">
             <div class="d-block">
-                <%= image_tag(  image_person_url(@person_service) ) %>
+                <%= image_tag( image_person_url(@person_service) ) %>
             </div>
             <div class="d-block my-2">
                 <strong>
@@ -51,6 +51,10 @@
 
                 <div>
                   <%= form.hidden_field :email, value:  email(@person_service) %>
+                </div>
+
+                <div>
+                  <%= form.file_field :photo %>
                 </div>
 
                 <div>
