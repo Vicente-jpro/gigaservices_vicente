@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-
+  include PersonConcern
   include PersonServiceConcern
   before_action :get_person_data_from_api_service
 
@@ -28,17 +28,6 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
     
-    require 'open-uri'
-    
-    download = open(person_params[:avatar_remote_url])
-    IO.copy_stream(download, '~/image.jpg')
-
-    #@person.photo.attach(
-     # io: File.open(), 
-     # filename: "profile.jpg", 
-      #content_type: "image/jpeg")
-      
-      debugger
     respond_to do |format|
       if @person.save
         format.html { redirect_to person_url(@person), notice: "Person was successfully created." }
@@ -52,6 +41,13 @@ class PeopleController < ApplicationController
 
   # PATCH/PUT /people/1 or /people/1.json
   def update
+
+    person = person_params
+    if do_not_have_photo_attached?
+      person = get_property(@person, person_params) 
+    end
+
+
     respond_to do |format|
       if @person.update(person_params)
         format.html { redirect_to person_url(@person), notice: "Person was successfully updated." }
@@ -82,5 +78,9 @@ class PeopleController < ApplicationController
     # Only allow a list of trusted parameters through.
     def person_params
       params.require(:person).permit(:title, :first, :last, :gender, :email, :photo)
+    end
+
+    def do_not_have_photo_attached?
+      (property_params[:photo].count - 1 ) == 0
     end
 end
