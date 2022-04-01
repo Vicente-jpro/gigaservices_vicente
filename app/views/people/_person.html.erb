@@ -1,32 +1,32 @@
 <div id="<%= dom_id person %>">
-  <p>
-    <strong>Imagem:</strong>
-    <%= image_tag(person.photo) if person.photo.attached? %>
-  </p>
 
-  <p>
-    <strong>Title:</strong>
-    <%= person.title %>
-  </p>
+    <div class="d-block">
+      <%= image_tag(person.photo) if person.photo.attached? %>
+    </div>
 
-  <p>
-    <strong>First:</strong>
-    <%= person.first %>
-  </p>
+    <div class="d-block">
+      <strong>Title:</strong>
+      <%= person.title %>
+    </div>
 
-  <p>
-    <strong>Last:</strong>
-    <%= person.last %>
-  </p>
+    <div class="d-block">
+      <strong>First:</strong>
+      <%= person.first %>
+    </div>
 
-  <p>
-    <strong>Gender:</strong>
-    <%= person.gender %>
-  </p>
+    <div class="d-block">
+      <strong>Last:</strong>
+      <%= person.last %>
+    </div>
 
-  <p>
-    <strong>Email:</strong>
-    <%= person.email %>
-  </p>
+    <div class="d-block">
+      <strong>Gender:</strong>
+      <%= person.gender %>
+    </div>
+
+  <div class="d-block">
+      <strong>Email:</strong>
+      <%= person.email %>
+    </div>
 
 </div>

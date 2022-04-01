@@ -2,13 +2,15 @@
 
 <h1>People</h1>
 
-<div id="people">
-  <% @people.each do |person| %>
-    <%= render person %>
-    <p>
-      <%= link_to "Show this person", person %>
-    </p>
-  <% end %>
+<div class="container" id="people">
+  <div class="row">
+    
+          <% @people.each do |person| %>
+            <div class="col-sm-3 text-center">
+              <%= render person %>
+              <%= link_to "Show this person", person , class:"btn btn-info my-2 " %>
+            </div>
+          <% end %>
+    
+  </div>
 </div>
-
-<%= link_to "New person", new_person_path %>
