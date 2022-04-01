@@ -1,9 +1,11 @@
 class PeopleController < ApplicationController
   include PersonConcern
   include PersonServiceConcern
-  before_action :get_person_data_from_api_service
 
+  before_action :get_person_data_from_api_service
   before_action :set_person, only: %i[ show edit update destroy ]
+  before_action :set_person_service, only: [ :new, :edit]
+
 
   # GET /people or /people.json
   def index
@@ -17,17 +19,19 @@ class PeopleController < ApplicationController
   # GET /people/new
   def new
     @person = Person.new
-    @person_service = get_person_data_from_api_service.general
   end
 
   # GET /people/1/edit
   def edit
+    button_name("Update") 
   end
 
   # POST /people or /people.json
   def create
     @person = Person.new(person_params)
     
+    button_name("Create") 
+
     respond_to do |format|
       if @person.save
         format.html { redirect_to person_url(@person), notice: "Person was successfully created." }
@@ -42,12 +46,6 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1 or /people/1.json
   def update
 
-    person = person_params
-    if do_not_have_photo_attached?
-      person = get_property(@person, person_params) 
-    end
-
-
     respond_to do |format|
       if @person.update(person_params)
         format.html { redirect_to person_url(@person), notice: "Person was successfully updated." }
@@ -61,6 +59,7 @@ class PeopleController < ApplicationController
 
   # DELETE /people/1 or /people/1.json
   def destroy
+    button_name("Delete") 
     @person.destroy
 
     respond_to do |format|
@@ -69,18 +68,22 @@ class PeopleController < ApplicationController
     end
   end
 
+    def button_name(name) 
+      @button_people_name = name
+      @button_people_name
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person
       @person = Person.find(params[:id])
     end
-
+    def set_person_service 
+      @person_service = get_person_data_from_api_service.general
+    end
     # Only allow a list of trusted parameters through.
     def person_params
       params.require(:person).permit(:title, :first, :last, :gender, :email, :photo)
     end
 
-    def do_not_have_photo_attached?
-      (property_params[:photo].count - 1 ) == 0
-    end
 end
