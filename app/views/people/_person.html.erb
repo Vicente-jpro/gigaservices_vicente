@@ -1,7 +1,7 @@
 <div id="<%= dom_id person %>">
 
     <div class="d-block">
-      <%= image_tag(person.photo) if person.photo.attached? %>
+      <%= image_tag(person.photo.variant(:thumb)) if person.photo.attached? %>
     </div>
 
     <div class="d-block">
