@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+          <h1>Result</h1>
+
+            <div class="container" id="people">
+                <div class="row">
+                    <% if @people %>
+                        <% @people.each do |person| %>
+                            <div class="col-sm-3 text-center">
+                            <%= render person %>
+                            <%= link_to "Show this person", person , class:"btn btn-info my-2 " %>
+                            </div>
+                        <% end %>
+                    <% else %>
+                        <h2 class="text-center">Person not found</h2>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

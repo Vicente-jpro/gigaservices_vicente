@@ -10,6 +10,7 @@ class PeopleController < ApplicationController
   # GET /people or /people.json
   def index
     @people = Person.all
+    @person2 = Person.new
   end
 
   # GET /people/1 or /people/1.json
@@ -68,10 +69,14 @@ class PeopleController < ApplicationController
     end
   end
 
-    def button_name(name) 
-      @button_people_name = name
-      @button_people_name
-    end
+  def search
+    @people = Person.get_some(params[:key]) 
+  end
+
+  def button_name(name) 
+    @button_people_name = name
+    @button_people_name
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
