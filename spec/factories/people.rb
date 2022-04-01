@@ -1,14 +1,12 @@
-FactoryBot.define do
-  factory :person do
-    
-  end
-end
-
 FactoryBot.define do 
-  factory :property do 
-      name {"Vicente"}
-      after(:build) do |property|
-          property.images.attach(io: File.open(Rails.root.join('spec', 'factories', 'images', 'pacaça.jpeg')), filename: 'pacaça.jpeg', content_type: 'image/jpeg')
+  factory :person do 
+      title  {"Eng"}
+      first  {"Vicente"}
+      last   {"Simão"}
+      gender {"Male"}
+      email  {"vicenteviii@gmail.com"}
+      after(:build) do |person|
+        person.photo.attach(io: File.open(Rails.root.join('spec', 'factories', 'images', 'pacaça.jpeg')), filename: 'pacaça.jpeg', content_type: 'image/jpeg')
       end
   end
 end
