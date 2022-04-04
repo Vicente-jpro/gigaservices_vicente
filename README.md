@@ -1,8 +1,8 @@
-# README
+# GIGASERVICES APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple Ruby on Rails application deployed to heroku.
 
+Run this app in link `https://gigaservices-vicente.herokuapp.com/`
 Things you may want to cover:
 
 * Ruby version
