@@ -1,0 +1,24 @@
+<div id="<%= dom_id person %>">
+
+    <div class="d-block">
+      <%= image_tag(person.photo.variant(:thumb)) if person.photo.attached? %>
+    </div>
+
+    <div class="d-block">
+      <strong>Name:</strong>
+      <%= person.title %>
+      <%= person.first %>
+      <%= person.last %>
+    </div>
+
+    <div class="d-block">
+      <strong>Gender:</strong>
+      <%= person.gender %>
+    </div>
+
+  <div class="d-block">
+      <strong>Email:</strong>
+      <%= person.email %>
+    </div>
+
+</div>

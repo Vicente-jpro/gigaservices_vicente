@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>People</h1>
+
+<div class="container" id="people">
+  <div class="row">
+    
+          <% @people.each do |person| %>
+            <div class="col-sm-3 text-center">
+              <%= render person %>
+              <%= link_to "Show this person", person , class:"btn btn-info my-2 " %>
+            </div>
+          <% end %>
+    
+  </div>
+</div>
