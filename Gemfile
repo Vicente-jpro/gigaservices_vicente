@@ -28,6 +28,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem "httparty"
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
