@@ -1,12 +1,8 @@
-<p style="color: green"><%= notice %></p>
 <div class="container text-center">
-
-  <%= render @person %>
-
-  <div class="d-block">
-    <%= link_to "Edit this person", edit_person_path(@person),  class:"btn btn-info my-2 col-sm-3" %>
-  </div>
-  <div class="d-block">
+  <div class="my-5">
+    <%= render @person %>
     <%= link_to "Destroy this person", @person, method: :delete %>
   </div>
+    
+
 </div>
