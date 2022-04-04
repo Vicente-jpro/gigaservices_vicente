@@ -51,7 +51,9 @@
                 <div>
                   <%= form.hidden_field :email, value:  email(@person_service) %>
                 </div>
-
+                <div>
+                  <%= form.hidden_field :photo, value: @person.photo if @person.photo.attached? %>
+                </div>
                 <div>
                   <%= form.file_field :photo %>
                 </div>
