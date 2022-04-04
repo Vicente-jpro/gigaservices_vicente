@@ -5,6 +5,11 @@
 
             <div class="container" id="people">
                 <div class="row">
+                 
+                 <div class="d-flex justify-content-center">
+                    <%= paginate @people, window: 2 %>
+                 </div>
+                 
                     <% if @people.any? %>
                         <% @people.each do |person| %>
                             <div class="col-sm-3 text-center">
@@ -15,6 +20,11 @@
                     <% else %>
                         <h2 class="text-center">Person not found</h2>
                     <% end %>
+
+                 <div class="d-flex justify-content-center">
+                    <%= paginate @people, window: 2 %>
+                 </div>
+
                 </div>
             </div>
         </div>
