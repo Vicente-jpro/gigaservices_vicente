@@ -62,7 +62,7 @@ class PeopleController < ApplicationController
   def destroy
     button_name("Delete") 
     @person.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to people_url, notice: "Person was successfully destroyed." }
       format.json { head :no_content }
