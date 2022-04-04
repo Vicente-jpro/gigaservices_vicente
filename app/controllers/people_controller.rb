@@ -32,7 +32,7 @@ class PeopleController < ApplicationController
     button_name("Create") 
 
     @person = Person.new(person_params)
-   
+  
     respond_to do |format|
       if @person.save
         format.html { redirect_to person_url(@person), notice: "Person was successfully created." }
