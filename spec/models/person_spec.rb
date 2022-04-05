@@ -4,7 +4,7 @@ RSpec.describe Person, type: :model do
   
   
   
-  describe "Person name" do 
+  context "Person name" do 
     let(:person) {create(:person)}
     
     it "has title" do 
@@ -28,7 +28,7 @@ RSpec.describe Person, type: :model do
     end 
   end
 
-  describe "Person attach" do 
+  context "Person attach" do 
     let(:person) {create(:person)}
 
     it "has photo" do  
@@ -36,5 +36,6 @@ RSpec.describe Person, type: :model do
     end
 
   end
+
   
 end

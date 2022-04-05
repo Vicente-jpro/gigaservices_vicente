@@ -64,6 +64,30 @@ RSpec.describe "People", type: :request do
     
 end
 
+describe "GET /search" do
+    
+  it "should success and render to index page" do
+    get "/people/search?key=" 
+    expect(response).to have_http_status(200)
+    expect(response).to render_template(:search) 
+  end   
+
+  #/people/search?key=Mrs
+  it "should have an empty array if there is no key value" do 
+    get "/people/search?key="
+    expect(assigns(:people)).to be_empty
+  end
+
+  it "should have a people array if has a key value as title" do 
+    create(:person)
+    get "/people/search?key=Eng"
+    expect(assigns(:people)).to_not be_empty
+  end
+
+end
+
+  
+
 
 
   # context "GET #edit" do 
