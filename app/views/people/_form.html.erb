@@ -54,10 +54,12 @@
                 <div>
                   <%= form.hidden_field :photo, value: @person.photo if @person.photo.attached? %>
                 </div>
-                <div>
-                  <%= form.file_field :photo %>
+                <div class="row d-flex justify-content-center">
+                  <div class="col-sm-4 my-1">
+                    <%= form.file_field :photo, class:"form-control form-control-sm" %>
+                  </div>
                 </div>
-
+                
                 <div>
                   <%= form.submit @button_people_name, class:"btn btn-info my-2 col-sm-3" %>
                 </div>
