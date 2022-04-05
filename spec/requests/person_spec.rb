@@ -84,6 +84,32 @@ describe "GET /search" do
     expect(assigns(:people)).to_not be_empty
   end
 
+  it "should have a people array if has a key value as first name" do 
+    create(:person)
+    get "/people/search?key=Vicente"
+    expect(assigns(:people)).to_not be_empty
+  end
+
+
+  it "should have a people array if has a key value as last name" do 
+    create(:person)
+    get "/people/search?key=Simao"
+    expect(assigns(:people)).to_not be_empty
+  end
+
+  it "should have a people array if has a key value as gener male" do 
+    create(:person)
+    get "/people/search?key=Male"
+    expect(assigns(:people)).to_not be_empty
+  end
+
+
+  it "should have a people array if has a key value as email" do 
+    create(:person)
+    get "/people/search?key=vicenteviii@gmail.com"
+    expect(assigns(:people)).to_not be_empty
+  end
+
 end
 
   

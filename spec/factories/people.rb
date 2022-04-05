@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :person do 
       title  {"Eng"}
       first  {"Vicente"}
-      last   {"Simão"}
+      last   {"Simao"}
       gender {"Male"}
       email  {"vicenteviii@gmail.com"}
       after(:build) do |person|

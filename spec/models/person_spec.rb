@@ -16,7 +16,7 @@ RSpec.describe Person, type: :model do
     end
 
     it "has last" do
-      expect(person.last).to eq("Simão") 
+      expect(person.last).to eq("Simao") 
     end
 
     it "has gener" do
