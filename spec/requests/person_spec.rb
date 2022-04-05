@@ -54,14 +54,14 @@ RSpec.describe "People", type: :request do
     end
   end
 
-  context "GET #edit" do 
-    let(:person) { create(:person) }
-    it "should success and render to edit page" do 
-      get "/people/1/edit", params: {id: person.id}
-      expect(response).to have_http_status(200) 
-      expect(response).to render_template(:edit)
-    end
-  end
+  # context "GET #edit" do 
+  #   let(:person) { create(:person) }
+  #   it "should success and render to edit page" do 
+  #     get "/people/1/edit", params: {id: person.id}
+  #     expect(response).to have_http_status(200) 
+  #     expect(response).to render_template(:edit)
+  #   end
+  # end
 
   context "CREATE #create" do 
 
@@ -70,9 +70,9 @@ RSpec.describe "People", type: :request do
   #  it "should create a new person" do 
   #    set_person = { 
   #      title: "Engff", 
-  #      first: "Vicente",
-  #      last: "Simao",
-  #      gender: "Male",
+  #      first: "Vicentee",
+  #      last: "Simaoo",
+  #      gender: "Malee",
   #      email: "vicenteviciii@gmail.com",
   #      photo:  File.open(Rails.root.join('spec', 'factories', 'images', 'pacaça.jpeg'), 
   #      filename: 'pacaça.jpeg', 
@@ -82,20 +82,20 @@ RSpec.describe "People", type: :request do
   #     expect(flash[:notice]).to eq("Property was successfully created.")
   #   end
 
-  # # #  it "not create a new person" do 
-  # # #    set_person = { 
-  # # #             title: "", 
-  # #              first: "",
-  # #              last: "",
-  # #              gender: "",
-  # #              email: "vicenteviciii@gmail.com",
-  # #              photo:  File.open(Rails.root.join('spec', 'factories', 'images', 'pacaça.jpeg'), 
-  # #              filename: 'pacaça.jpeg', 
-  # #              content_type: 'image/jpeg')
-  # #       }
-  # #     post "/people", params: {person: set_person}
-  # #     expect(response).to render_template(:new)
-  # #    end
+  #  it "not create a new person" do 
+  #    set_person = { 
+  #             title: "", 
+  #              first: "",
+  #              last: "",
+  #              gender: "",
+  #              email: "vicenteviciii@gmail.com",
+  #              photo:  File.open(Rails.root.join('spec', 'factories', 'images', 'pacaça.jpeg'), 
+  #              filename: 'pacaça.jpeg', 
+  #              content_type: 'image/jpeg')
+  #       }
+  #     post "/people", params: {person: set_person}
+  #     expect(response).to render_template(:new)
+  #    end
 
   end
 
