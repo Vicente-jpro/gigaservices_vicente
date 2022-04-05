@@ -54,6 +54,18 @@ RSpec.describe "People", type: :request do
     end
   end
 
+  context "Destroy #destroy" do 
+    let(:person) {create(:person)}
+
+    it "Should destroy a property" do 
+      delete "/people/1", params: {id: person.id }
+      expect(flash[:notice]).to eq("Person was successfully destroyed.")
+    end
+    
+end
+
+
+
   # context "GET #edit" do 
   #   let(:person) { create(:person) }
   #   it "should success and render to edit page" do 
